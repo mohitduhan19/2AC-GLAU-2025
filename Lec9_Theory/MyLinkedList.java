@@ -1,4 +1,4 @@
-package U.Lec11_PCPH;
+package AC.Lec9_Theory;
 
 class MyLinkedList {
     public static class Node{
@@ -75,4 +75,59 @@ class MyLinkedList {
             size++;
         }
     }
+    public void removeFirst() {
+        if (size == 0) {
+            System.out.println("List is empty");
+        } else if (size == 1) {
+            head = tail = null;
+            size = 0;
+        } else {
+            head = head.next;
+            size--;
+        }
+    }
+
+    public void removeLast() {
+        if (size == 0) {
+            System.out.println("List is empty");
+        } else if (size == 1) {
+            head = tail = null;
+            size = 0;
+        } else {
+            Node temp = head;
+            for (int i = 0; i < size - 2; i++) {
+                temp = temp.next;
+            }
+
+            tail = temp;
+            tail.next = null;
+            size--;
+        }
+    }
+
+
+    public void deleteAtIndex(int idx) {
+        if(size == 0){
+            System.out.println("List is empty");
+            return;
+        }
+
+        if(idx < 0 || idx >= size){
+            System.out.println("Invalid arguments");
+            return;
+        }
+
+        if(idx == 0) removeFirst();
+        else if(idx == size - 1) removeLast();
+        else {
+            Node prev = head;
+            for(int i=0; i<idx-1; i++){
+                prev = prev.next;
+            }
+
+            prev.next = prev.next.next;
+            size--;
+        }
+    }
+
 }
