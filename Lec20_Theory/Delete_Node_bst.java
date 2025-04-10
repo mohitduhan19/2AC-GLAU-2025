@@ -1,8 +1,6 @@
 package AC.Lec20_Theory;
 
-import AC.Lec19_Theory.Path_Sum_II;
-
-public class Delete_Node {
+public class Delete_Node_bst {
     public class TreeNode {
         int val;
         TreeNode left;
